@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Autoexec</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <h1>Generator <span>Autoexec.cfg</span></h1>
+        </div>
+        
+            <div class="commands">
+
+                <div class="command-group">
+                    <h2>Licznik FPS (Telemetria)</h2> 
+                    <p>Włącza nowoczesny licznik w prawym górnym rogu, który pokazuje <strong>FPS</strong> oraz <strong>Frame Time (ms)</strong>. Jest to oficjalny zamiennik starego net_graph w CS 2.</p>
+                    <img src="image-fps.png" alt="Podgląd FPS CS2" class="preview-img">
+                    <div class="btns">
+                        <button id="btn-fps" class="btn-add">Dodaj</button>
+                        <button id="btn-back-fps" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>
+
+                <div class="command-group">
+                    <h2>Wyłącza napis za datą w lewym dolnym rogu</h2>
+                    <p>Usuwa tekst z numerem wersji i datą aktualizacji w lewym dolnym rogu ekranu. Wyłącz to, aby uzyskać czystszy i bardziej przejrzysty interfejs.</p>
+                    <img src="image-data.png" alt="Podgląd Data CS2" class="preview-img">
+                    <div class="btns">
+                        <button id="btn-data" class="btn-add">Dodaj</button>
+                        <button id="btn-back-data" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>
+
+                <div class="command-group">
+                    <h2>Lepszy Radar (Widoczność Mapy)</h2> 
+                    <p>Zmienia skalowanie radaru tak, abyś widział <strong>całą mapę</strong> zamiast tylko swojej okolicy. Wyłącza też centrowanie na graczu, co pozwala efektywniej wykorzystać miejsce na ekranie.</p>
+                    <img src="image-radar.png" alt="Podgląd Radar CS2" class="preview-img">
+                    <div class="btns">
+                        <button id="btn-radar" class="btn-add">Dodaj</button>
+                        <button id="btn-back-radar" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>               
+                
+                <div class="command-group">
+                    <h2>Quick Switch (QQ)</h2>
+                    <p>Automatycznie zmienia broń na nóż i z powrotem po naciśnięciu klawisza <strong>Q</strong>. Jest to kluczowe dla snajperów (AWP/Scout), aby błyskawicznie zresetować lunetę po strzale.</p>
+                    <video src="qq.webm" controls class="responsive-video"></video>
+                    <div class="btns">
+                        <button id="btn-qq" class="btn-add">Dodaj</button>
+                        <button id="btn-qq-drop" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>
+                
+                <div class="command-group">
+                    <h2>Skok na Scroll w górę </h2>
+                    <p>Przypisuje funkcję skoku do kręcenia kółkiem myszy w górę (mwheelup). Ułatwia to idealne wyczucie momentu lądowania, co jest niezbędne do płynnego wykonywania Bunnyhopów.</p>
+                    <div class="btns">
+                        <button id="btn-scroll-up" class="btn-add">Dodaj</button>
+                        <button id="btn-scroll-up-back" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>
+
+                <div class="command-group">
+                    <h2>Skok na Scroll w dół</h2>
+                    <p>Przypisuje funkcję skoku do kręcenia kółkiem myszy w dół (mwheeldown). Ułatwia to idealne wyczucie momentu lądowania, co jest niezbędne do płynnego wykonywania Bunnyhopów.</p>
+                    <div class="btns">
+                        <button id="btn-scroll-down" class="btn-add">Dodaj</button>
+                        <button id="btn-scroll-down-back" class="btn-remove" disabled>Cofnij</button>
+                    </div>
+                </div>                
+                
+            </div>
+
+            <div class="preview">
+                <textarea id="podglad" readonly placeholder="// Twoja konfiguracja pojawi się tutaj..."></textarea>
+                <button id="btn-copy">Copy Commands</button>
+                <button id="btn-pobierz" class="btn-main">Pobierz plik .cfg</button>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+/* =========================
+   1. USTAWIENIA OGÓLNE
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Saira', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    /* Tło - upewnij się, że ścieżka do obrazka jest poprawna */
+    background-image: url('4060492.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+
+h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   2. UKŁAD GRID (Dla generatora i ogólny)
+   ========================= */
+.container {
+    display: grid;
+    gap: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+    
+    /* Domyślny grid dla GENERATORA */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "head     head     head"
+    "commands commands view";
+}
+
+/* =========================
+   3. LOGO I NAGŁÓWKI
+   ========================= */
+.logo {
+    grid-area: head;
+    text-align: center;
+    background-color: rgba(51, 51, 51, 0.6); 
+    backdrop-filter: blur(5px); 
+    padding: 30px 40px;    
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.logo h1 {
+    font-weight: 700;          
+    text-transform: uppercase; 
+    letter-spacing: 2px;       
+    color: white;              
+    margin: 0; 
+    font-size: 2.5rem;
+}
+
+h1 span {
+    color: #ffaa00; 
+}
+
+/* =========================
+   4. SEKCJA KOMEND (Generator)
+   ========================= */
+.commands {
+    grid-area: commands;
+}
+
+.command-group {
+    display: flex;
+    flex-direction: column;
+    column-gap: 0.5rem;
+    row-gap: 1rem;
+    background: #1e1e1e;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 2px solid #636262;
+    border-left: 8px solid #636262;
+}
+
+.preview-img {
+    display: block;         
+    width: 250px;
+    max-width: 100%;        
+    height: auto;           
+    margin-top: 5px;       
+    margin-bottom: 5px;    
+    border-radius: 4px;     
+    border: 1px solid #333; 
+}
+
+video {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+/* =========================
+   5. PRZYCISKI
+   ========================= */
+.btns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    font-family: 'Saira', sans-serif;
+    padding: 8px 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s;
+}
+
+button:disabled {
+    background: #444 !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-add {
+    background: #4CAF50; 
+    color: white; 
+}
+
+.btn-remove {
+    background: #f44336; 
+    color: white; 
+    margin-left: 5px; 
+}
+
+/* =========================
+   6. SEKCJA PODGLĄDU (Generator)
+   ========================= */
+.preview {
+    grid-area: view;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    width: 100%;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    height: fit-content; 
+}
+
+#podglad {
+    width: 100%;
+    height: 300px;
+    background: #000;
+    color: #00ff00; 
+    font-family: 'Saira', sans-serif;
+    padding: 15px;
+    border: 3px solid #333;
+    resize: none;
+}
+
+#btn-copy {
+    margin-top: 10px;
+    border: 3px solid #636262;
+}
+
+.btn-main {
+    width: 100%;
+    background: #ffaa00;
+    border: 4px solid #946300;
+    color: #000;
+    font-size: 18px;
+}
+
+/* =========================
+   7. STYLE STRONY GŁÓWNEJ (NOWE)
+   ========================= */
+
+/* Modyfikacja Grida tylko dla strony głównej */
+.home-layout {
+    grid-template-areas: 
+    "head head head"
+    "menu menu menu"; /* Cała szerokość dla menu */
+}
+
+.main-menu {
+    grid-area: menu;
+    display: grid;
+    /* Automatyczne kolumny, minimum 300px szerokości */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Wygląd kafelków menu */
+.menu-card {
+    background: #1e1e1e;
+    border: 2px solid #636262;
+    border-left: 8px solid #ffaa00; /* Pomarańczowy akcent */
+    padding: 30px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efekt najechania myszką */
+.menu-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffaa00;
+    background: #252525;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.menu-card h2 {
+    color: #ffaa00;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.menu-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* Przycisk wewnątrz karty */
+.btn-fake {
+    margin-top: auto; /* Pcha przycisk na dół */
+    background: #ffaa00;
+    color: #000;
+    padding: 8px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+/* Styl dla nieaktywnych kart (Wkrótce) */
+.menu-card.disabled {
+    opacity: 0.6;
+    border-left-color: #444;
+    cursor: default;
+}
+
+.menu-card.disabled:hover {
+    transform: none;
+    border-color: #636262;
+}
+
+.menu-card.disabled .btn-fake {
+    background: #444;
+    color: #888;
+}

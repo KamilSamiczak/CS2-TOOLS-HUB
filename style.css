@@ -1,0 +1,189 @@
+/* =========================
+   1. USTAWIENIA OGÓLNE
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Saira', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    /* Tło */
+    background-image: url('4060492.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+
+h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+.responsive-video {
+    width: 100%;      /* Zajmuje całą dostępną szerokość rodzica */
+    height: auto;     /* Zachowuje proporcje */
+    max-height: 300px; /* Opcjonalnie: żeby nie było za wysokie */
+    background: #000; /* Tło w razie ładowania */
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: block; /* Dodano dla bezpieczeństwa */
+}
+
+/* --- POPRAWIONY GRID --- */
+.container {
+    display: grid;
+    gap: 1rem;
+    
+    /* Definiujemy 3 równe kolumny, aby pasowały do układu poniżej */
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    grid-template-areas: 
+    "head     head     head"
+    "commands commands view";
+    
+    /* Opcjonalnie: ograniczenie szerokości, żeby nie było za szerokie na dużych ekranach */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* =========================
+   2. LOGO I NAGŁÓWKI
+   ========================= */
+.logo {
+    grid-area: head;
+    text-align: center;
+    background-color: rgba(51, 51, 51, 0.6); 
+    backdrop-filter: blur(2px); 
+    padding: 20px 40px;    
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.logo h1 {
+    font-weight: 700;          
+    text-transform: uppercase; 
+    letter-spacing: 2px;       
+    color: white;              
+    margin: 0; 
+}
+
+h1 span {
+    color: #ffaa00; 
+}
+
+/* =========================
+   3. SEKCJA KOMEND
+   ========================= */
+.commands {
+    grid-area: commands;
+}
+
+/* =========================
+   4. KARTY I ELEMENTY
+   ========================= */
+.command-group {
+    display: flex;
+    flex-direction: column;
+    column-gap: 0.5rem;
+    row-gap: 1rem;
+    background: #1e1e1e;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 2px solid #636262;
+    border-left: 8px solid #636262;
+}
+
+.preview-img {
+    display: block;         
+    width: 250px;
+    max-width: 100%;        
+    height: auto;           
+    margin-top: 5px;       
+    margin-bottom: 5px;    
+    border-radius: 4px;     
+    border: 1px solid #333; 
+}
+
+/* =========================
+   5. PRZYCISKI
+   ========================= */
+.btns {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    font-family: 'Saira', sans-serif;
+    padding: 8px 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s;
+}
+
+button:disabled {
+    background: #444 !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-add {
+    background: #4CAF50; 
+    color: white; 
+}
+
+.btn-remove {
+    background: #f44336; 
+    color: white; 
+    margin-left: 5px; 
+}
+
+/* =========================
+   6. SEKCJA PODGLĄDU
+   ========================= */
+.preview {
+    grid-area: view;
+    
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    width: 100%;
+    
+    /* Sticky panel */
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    height: fit-content; /* Ważne dla sticky */
+}
+
+#podglad {
+    width: 100%;
+    height: 300px;
+    background: #000;
+    color: #00ff00; 
+    font-family: 'Saira', sans-serif;
+    padding: 15px;
+    border: 3px solid #333;
+    resize: none;
+}
+
+#btn-copy {
+    margin-top: 10px;
+    border: 3px solid #636262;
+}
+
+.btn-main {
+    width: 100%;
+    background: #ffaa00;
+    border: 4px solid #946300;
+    color: #000;
+    font-size: 18px;
+}
+/* Usunięto zbędny nawias klamrowy na końcu pliku */
